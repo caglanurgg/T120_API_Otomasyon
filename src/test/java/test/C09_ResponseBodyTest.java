@@ -1,7 +1,8 @@
 package test;
 
 import io.restassured.response.Response;
-import org.junit.Test;
+import org.hamcrest.Matchers;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -24,25 +25,20 @@ public class C09_ResponseBodyTest {
         // 1- Endponit hazırlama
         String url="http://dummy.restapiexample.com/api/v1/employees";
 
-        // 2-Expected body verilmediği için hazırlanmadı
+        // 2-Expected body verilmedigi için hazırlanmadi
 
         // 3-Response Kaydetme
-
         Response response=given().when().get(url);
 
-        // response.prettyPeek();
+        // response.prettyPeek(); her seyi getiriyor
 
         // 4- Assertion yapma
-
         response.then().assertThat()
                 .statusCode(200)
                 .contentType("application/json")
-                .body("data.id", hasSize(24),
+                .body("data.id", hasSize(24), //employees sayisinin 24
                         "data.employee_name",hasItem("Ashton Cox"),
                         "data.employee_age",hasItems(61,40,30));
-
-
-
 
     }
 }

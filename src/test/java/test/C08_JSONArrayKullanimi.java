@@ -2,7 +2,7 @@ package test;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class C08_JSONArrayKullanimi {
     /*
@@ -41,8 +41,8 @@ public class C08_JSONArrayKullanimi {
 
         //simdi bunlari bir Array'in icine yerlestirecegiz
         JSONArray phoneNumbers=new JSONArray();
-        phoneNumbers.put(0,ceptel);
-        phoneNumbers.put(1,evtel);
+        phoneNumbers.put(0,ceptel); //68 ve 69.satir
+        phoneNumbers.put(1,evtel); // 70 ve 71.satir
 
 
         JSONObject adres=new JSONObject();
