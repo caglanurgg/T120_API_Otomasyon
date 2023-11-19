@@ -6,9 +6,11 @@ import org.junit.Before;
 
 public class JsonPlaceBaseUrl {
 
+    //Bu class altinda instance bir RequestSpesification objesi
+    //olusturalim. (Bu objenin ismi genelde spec ile baslar)
     protected RequestSpecification specJsonPlace;
 
-    @Before
+    @Before //*Before JUnit'den
     public void setUp(){
 
         specJsonPlace = new RequestSpecBuilder()
