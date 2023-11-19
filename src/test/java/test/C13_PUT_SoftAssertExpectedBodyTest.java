@@ -12,7 +12,8 @@ import static io.restassured.RestAssured.given;
 public class C13_PUT_SoftAssertExpectedBodyTest {
         /*
     https://dummy.restapiexample.com/api/v1/update/21 url’ine asagidaki
-    body’ye sahip bir PUT request gonderdigimizde donen response’un asagidaki gibi oldugunu test edin.
+    body’ye sahip bir PUT request gonderdigimizde donen response’un
+    asagidaki gibi oldugunu test edin.
 
             Request Body
             {
@@ -41,6 +42,8 @@ public class C13_PUT_SoftAssertExpectedBodyTest {
             }
                  */
 
+    //*put varsa guncelliyordu atmıs oldugumuz bilgileri yoksa
+    //*bizim atmıs oldugumuz bilgilerle yeni bir data kaydediyordu.
     @Test
     public void put01(){
         //1- EndPoint Hazırla
@@ -82,6 +85,7 @@ public class C13_PUT_SoftAssertExpectedBodyTest {
 
         // response.prettyPrint();
 
+        //4- Assertion İslemi
         SoftAssert softAssert=new SoftAssert();
 
         JsonPath resJP=response.jsonPath();
