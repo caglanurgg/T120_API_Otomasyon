@@ -88,7 +88,7 @@ public class C13_PUT_SoftAssertExpectedBodyTest {
         //4- Assertion İslemi
         SoftAssert softAssert=new SoftAssert();
 
-        JsonPath resJP=response.jsonPath();
+        JsonPath resJP=response.jsonPath(); //gelen cevabi bir objeye donusturuyoruz.
         /*
         {
             "status":"success",
