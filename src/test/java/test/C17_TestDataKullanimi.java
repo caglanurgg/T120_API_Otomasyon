@@ -12,10 +12,8 @@ import static org.junit.Assert.assertEquals;
 
 public class C17_TestDataKullanimi extends JsonPlaceBaseUrl {
     /*
-
-
-  https://jsonplaceholder.typicode.com/posts/22 url'ine bir GET
-  request yolladigimizda donen response’in status kodunun 200 ve
+  https://jsonplaceholder.typicode.com/posts/22 url'ine bir GET request
+  yolladigimizda donen response’in status kodunun 200 ve
   response body’sinin asagida verilen ile ayni oldugunu test ediniz
 
    Response body = Expected Body
@@ -31,8 +29,9 @@ public class C17_TestDataKullanimi extends JsonPlaceBaseUrl {
     public void get01(){
         //1-EndPoint'i hazırladık
         specJsonPlace.pathParams("pp1","posts","pp2",22);
+        // pp1 degeri posts pp2 degeri 22
 
-        //2- Expected Data Oluşturduk
+        //2- Expected Data Olusturduk
         TestDataJSONPlace testDataJSONPlace=new TestDataJSONPlace();
         JSONObject expData=testDataJSONPlace.expBodyOlusturJSON();
 
@@ -41,7 +40,7 @@ public class C17_TestDataKullanimi extends JsonPlaceBaseUrl {
         Response response=given().spec(specJsonPlace).when().get("/{pp1}/{pp2}");
 
         //4- Assertion İşlemi
-        JsonPath respJP=response.jsonPath();
+        JsonPath respJP=response.jsonPath(); //gelen cevabi bir objeye donusturuyoruz.
         assertEquals(testDataJSONPlace.okStatusKodu,response.getStatusCode());
         assertEquals(expData.get("userId"),respJP.get("userId"));
         assertEquals(expData.get("id"),respJP.get("id"));
@@ -49,17 +48,5 @@ public class C17_TestDataKullanimi extends JsonPlaceBaseUrl {
         assertEquals(expData.get("body"),respJP.get("body"));
 
 
-
-
-
-
-
-
-
-
     }
-
-
-
-
 }

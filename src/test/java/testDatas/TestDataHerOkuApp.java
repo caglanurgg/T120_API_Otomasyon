@@ -19,7 +19,7 @@ public class TestDataHerOkuApp {
       "additionalneeds" : "wi-fi"
        }
      */
-    public JSONObject bookingDatesOlusturJSON(){
+    public JSONObject bookingDatesOlusturJSON(){ //methoda ulasabilmek icin public
         JSONObject bookingDates=new JSONObject();
         bookingDates.put("checkin","2021-06-01");
         bookingDates.put("checkout","2021-06-10");
@@ -60,12 +60,4 @@ public class TestDataHerOkuApp {
         expData.put("booking",reqBodyOlusturJSON());
         return expData;
     }
-
-
-
-
-
-
-
-
 }

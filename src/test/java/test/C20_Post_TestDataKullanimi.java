@@ -48,7 +48,9 @@ public class C20_Post_TestDataKullanimi extends HerOkuAppBaseURL {
      */
     @Test
     public void post01(){
+        //1- EndPoint Hazırlama
         specHerOkuApp.pathParam("pp1","booking");
+        // pp1 degeri booking
 
         TestDataHerOkuApp testDataHerOkuApp=new TestDataHerOkuApp();
 
@@ -56,10 +58,12 @@ public class C20_Post_TestDataKullanimi extends HerOkuAppBaseURL {
 
         JSONObject expBody=testDataHerOkuApp.expectedBodyOlusturJSON();
 
+        //3- Response kayıt
         Response response=given().spec(specHerOkuApp).contentType(ContentType.JSON)
                 .when().body(reqBody.toString()).post("/{pp1}");
 
-        JsonPath respJP=response.jsonPath();
+        //4- Assertion Islemi
+        JsonPath respJP=response.jsonPath(); //gelen cevabi bir objeye donusturuyoruz.
 
         assertEquals(testDataHerOkuApp.okStatusKodu,response.getStatusCode());
         assertEquals(expBody.getJSONObject("booking").get("firstname"),respJP.get("booking.firstname"));
@@ -70,6 +74,18 @@ public class C20_Post_TestDataKullanimi extends HerOkuAppBaseURL {
         assertEquals(expBody.getJSONObject("booking").getJSONObject("bookingdates").get("checkout"),respJP.get("booking.bookingdates.checkout"));
         assertEquals(expBody.getJSONObject("booking").get("additionalneeds"),respJP.get("booking.additionalneeds"));
 
-
+/*
+ "booking":{
+            "firstname":"Ali",
+            "lastname":"Bak",
+            "totalprice":500,
+            "depositpaid":false,
+            "bookingdates":{
+                            "checkin":"2021-06-01",
+                            "checkout":"2021-06-10"
+                            },
+            "additionalneeds":"wi-fi"
+               }
+ */
     }
 }

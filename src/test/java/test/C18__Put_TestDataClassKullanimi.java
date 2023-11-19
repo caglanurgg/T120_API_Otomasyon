@@ -20,7 +20,6 @@ public class C18__Put_TestDataClassKullanimi extends JsonPlaceBaseUrl {
     ve response body’sinin asagida verilen ile ayni oldugunu test ediniz
 
     Request Body
-
         {
         "title":"Ali",
         "body":"Merhaba",
@@ -29,7 +28,6 @@ public class C18__Put_TestDataClassKullanimi extends JsonPlaceBaseUrl {
         }
 
     Expected Data
-
         {
         "title":"Ali",
         "body":"Merhaba",
@@ -41,10 +39,10 @@ public class C18__Put_TestDataClassKullanimi extends JsonPlaceBaseUrl {
     @Test
     public void put01(){
         //1- EndPoint Hazırlama
-
         specJsonPlace.pathParams("pp1","posts","pp2",70);
+        // pp1 degeri posts pp2 degeri 70
 
-        TestDataJSONPlace testDataJSONPlace= new TestDataJSONPlace();
+        TestDataJSONPlace testDataJSONPlace= new TestDataJSONPlace(); //obje olusturduk
 
         JSONObject reqBody=testDataJSONPlace.reqBodyOlusturJSON();
 
@@ -61,8 +59,8 @@ public class C18__Put_TestDataClassKullanimi extends JsonPlaceBaseUrl {
                 .body(reqBody.toString())
                 .put("/{pp1}/{pp2}");
 
-        //4- Assertion İşlemi
-        JsonPath respJP=response.jsonPath();
+        //4- Assertion Islemi
+        JsonPath respJP=response.jsonPath(); //gelen cevabi bir objeye donusturuyoruz.
         response.prettyPeek();
         System.out.println(response.getHeader("Connection"));
 
@@ -73,7 +71,6 @@ public class C18__Put_TestDataClassKullanimi extends JsonPlaceBaseUrl {
         assertEquals(expdata.get("body"),respJP.get("body"));
         assertEquals(expdata.get("userId"),respJP.get("userId"));
         assertEquals(expdata.get("id"),respJP.get("id"));
-
 
     }
 

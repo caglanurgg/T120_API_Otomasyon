@@ -49,13 +49,14 @@ public class C16_BaseUrlQueryParams extends HerOkuAppBaseURL {
     */
         specHerOkuApp.pathParam("pp1","booking").queryParam("firstName","Eric");
         Response response=given().spec(specHerOkuApp).when().get("/{pp1}");
+        // pp1 --> pathParam1
 
         // response.prettyPrint();
         //response.then().assertThat().statusCode(200).body("bookingid",notNullValue());
         //notNullValue() ---> ici bos degilse
 
         response.then().assertThat().statusCode(200).body("bookingid",hasSize(greaterThan(0)));
-        //hasSize(greaterThan(0))
+        //hasSize(greaterThan(0)) buyuklugunun 0'dan buyuk oldugunu
     }
 
     public void get03(){

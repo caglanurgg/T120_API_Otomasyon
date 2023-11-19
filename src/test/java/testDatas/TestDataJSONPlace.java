@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class TestDataJSONPlace {
 
-    public int okStatusKodu=200;
+    public int okStatusKodu=200; //her yerden ulasabilmek icin
     public String contentType="application/json; charset=utf-8";
     public String connectionHeader="keep-alive";
 
@@ -32,7 +32,7 @@ public class TestDataJSONPlace {
         return expBody;
     }
 
-    public JSONObject reqBodyOlusturJSON(){
+    public JSONObject reqBodyOlusturJSON(){ //C18__Put_TestDataClassKullanimi'da kullandik
         /*
         Request Body
 
