@@ -16,8 +16,8 @@ import static org.junit.Assert.assertEquals;
 
 public class C22_Get_DeSerialization extends DummyBaseUrl {
       /*
-    http://dummy.restapiexample.com/api/v1/employee/3 url’ine bir GET
-    request gonderdigimizde donen response’un status code’unun 200,
+    http://dummy.restapiexample.com/api/v1/employee/3 url’ine bir GET request
+    gonderdigimizde donen response’un status code’unun 200,
     content Type’inin application/json ve body’sinin asagidaki gibi
     oldugunu test edin.
 
@@ -37,14 +37,20 @@ public class C22_Get_DeSerialization extends DummyBaseUrl {
 
     @Test
     public void get01(){
+        //1- EndPoint Hazırlama
         specDummy.pathParams("pp1","api","pp2","v1","pp3","employee","pp4",3);
+        //pp1 degeri api pp2 degeri v1 pp3 degeri employee pp4 degeri 3
 
-        TestDataDummy testDataDummy=new TestDataDummy();
+        TestDataDummy testDataDummy=new TestDataDummy(); //obje olusturduk
 
         HashMap<String,Object> expBody=testDataDummy.expectedBodyOlusturMAP();
 
+        //3- Response kayıt
         Response response=given().spec(specDummy).when().get("/{pp1}/{pp2}/{pp3}/{pp4}");
 
+        //4- ASSERTION ISLEMI
+
+        //*JSON olarak gelen veriyi JAVA diline cevirelim
         HashMap<String,Object> respMAP=response.as(HashMap.class);
 
         assertEquals(testDataDummy.okStatusKodu,response.getStatusCode());
@@ -53,6 +59,8 @@ public class C22_Get_DeSerialization extends DummyBaseUrl {
         assertEquals(expBody.get("message"),respMAP.get("message"));
 
         assertEquals(((Map)(expBody.get("data"))).get("id"),((Map)(respMAP.get("data"))).get("id"));
+        //(((Map)(expBody.get("data"))) datayi bir map haline getirmis olduk.
+        //boylece artik id'ye ulasabilirim.
         assertEquals(((Map)(expBody.get("data"))).get("employee_name"),((Map)(respMAP.get("data"))).get("employee_name"));
         assertEquals(((Map)(expBody.get("data"))).get("employee_salary"),((Map)(respMAP.get("data"))).get("employee_salary"));
         assertEquals(((Map)(expBody.get("data"))).get("employee_age"),((Map)(respMAP.get("data"))).get("employee_age"));
@@ -60,9 +68,6 @@ public class C22_Get_DeSerialization extends DummyBaseUrl {
 
         // id içinde de bir bilgi olsaydı;
         //assertEquals(((Map)(((Map)(expBody.get("data"))).get("id"))).get("number"),((Map)(respMAP.get("data"))).get("id"));
-
-
-
 
 
 

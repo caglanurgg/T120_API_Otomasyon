@@ -38,7 +38,7 @@ public class TestDataDummy {
    "message":"Successfully! Record has been fetched."
    }
         */
-    public HashMap dataOlusturMAP() {
+    public HashMap dataOlusturMAP() { //C22_Get_DeSerialization icin
 
         HashMap<String,Object> data=new HashMap<>();
         data.put("id",3.0);
@@ -46,11 +46,11 @@ public class TestDataDummy {
         data.put("employee_salary",86000.0);
         data.put("employee_age",66.0);
         data.put("profile_image","");
-
+        //not: map double kabul eder
         return data;
     }
 
-    public HashMap expectedBodyOlusturMAP(){
+    public HashMap expectedBodyOlusturMAP(){ //C22_Get_DeSerialization icin
         HashMap<String,Object> expData=new HashMap<>();
         expData.put("status","success");
         expData.put("data",dataOlusturMAP());
