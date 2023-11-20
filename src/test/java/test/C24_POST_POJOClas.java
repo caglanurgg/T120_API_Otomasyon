@@ -48,15 +48,19 @@ public class C24_POST_POJOClas extends HerOkuAppBaseURL {
                               }
                     }
          */
-
+    //not: pojos package'indaki BookingPOJO ve BookingDatesPOJO classları bu classla alakali
     @Test
     public void post01(){
+        //1- EndPoint Hazırlama
         specHerOkuApp.pathParam("pp1","booking");
+        //pp1 degeri booking
+
         BookingDatesPOJO bookingdates=new BookingDatesPOJO("2021-06-01","2021-06-10");
         BookingPOJO reqBody=new BookingPOJO("Ali","Bak",500,false,bookingdates,"wi-fi");
 
         HerOkuAppPOJO expBody=new HerOkuAppPOJO(1364,reqBody);
 
+        //3- Response kayıt
         Response response=given()
                 .spec(specHerOkuApp)
                 .contentType(ContentType.JSON)

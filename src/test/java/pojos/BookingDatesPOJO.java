@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingDatesPOJO {
+public class BookingDatesPOJO { //C24_POST_POJOClas classiyla alakali
 
       /*
      {
