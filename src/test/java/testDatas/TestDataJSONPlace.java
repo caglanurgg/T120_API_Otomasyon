@@ -54,8 +54,9 @@ public class TestDataJSONPlace {
     }
 
 
-    public HashMap<String,Object> requestBodyOlusturMAP(){
+    public HashMap<String,Object> requestBodyOlusturMAP(){ //C21_PUT_DeSerialization icin
         HashMap<String,Object> reqBody=new HashMap<>();
+        // 58.satir: olusturdugumuz reqBody'nin nerden alinacagini yaziyoruz
 
 
         reqBody.put("title","Ali");
