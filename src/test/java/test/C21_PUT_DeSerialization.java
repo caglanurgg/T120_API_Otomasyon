@@ -52,6 +52,12 @@ public class C21_PUT_DeSerialization extends JsonPlaceBaseUrl {
                 .when()
                 .body(reqBody).put("/{pp1}/{pp2}");
 
+        //* onceki classlarda .body(reqBody.toString()) diyorduk ama burada
+        //* kullanmadik cunku eger herhangi bir obje olusturmamıssak
+        //* bu classta 44.satirda zaten reqBody'yi bir Java objesi olarak
+        //* olusturdugum icin Java reqBody'yi zaten taniyor bu yuzden
+        //* toString yaparak herhangi bir seye cevirmeye ihtiyacım yok.
+
         //4- ASSERTION ISLEMI
 
         //*JSON olarak gelen veriyi JAVA diline cevirelim

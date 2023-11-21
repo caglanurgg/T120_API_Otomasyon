@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HerOkuAppPOJO {
+public class HerOkuAppPOJO { //C24_POST_POJOClas classiyla alakali
 
     /*
     Response Body = Expected Data
@@ -25,6 +25,6 @@ public class HerOkuAppPOJO {
                                             }
      */
     private int bookingid;
-    private BookingPOJO booking;
+    private BookingPOJO booking; // booking'in turu BookingPOJO
 
 }

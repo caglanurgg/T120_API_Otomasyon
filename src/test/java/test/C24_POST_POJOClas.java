@@ -48,7 +48,8 @@ public class C24_POST_POJOClas extends HerOkuAppBaseURL {
                               }
                     }
          */
-    //not: pojos package'indaki BookingPOJO ve BookingDatesPOJO classları bu classla alakali
+    //not: pojos package'indaki
+    //BookingPOJO ve BookingDatesPOJO, HerOkuAppPOJO classları bu classla alakali
     @Test
     public void post01(){
         //1- EndPoint Hazırlama
@@ -67,9 +68,13 @@ public class C24_POST_POJOClas extends HerOkuAppBaseURL {
                 .when().body(reqBody)
                 .post("/{pp1}");
 
+        //* post methodunda 1-contentType 2- body olmali
+
         HerOkuAppPOJO respPOJO=response.as(HerOkuAppPOJO.class);
 
         //assertEquals(expBody.getBookingid(),respPOJO.getBookingid());
+        //* her birinde farkli id verdigi icin ben bunu sorgularsam
+        //* bana her seferinde hata verir asagiyi sorgulamaz
         assertEquals(expBody.getBooking().getFirstname(),respPOJO.getBooking().getFirstname());
         assertEquals(expBody.getBooking().getLastname(),respPOJO.getBooking().getLastname());
         assertEquals(expBody.getBooking().getTotalprice(),respPOJO.getBooking().getTotalprice());
@@ -77,9 +82,6 @@ public class C24_POST_POJOClas extends HerOkuAppBaseURL {
         assertEquals(expBody.getBooking().getBookingdates().getCheckin(),respPOJO.getBooking().getBookingdates().getCheckin());
         assertEquals(expBody.getBooking().getBookingdates().getCheckout(),respPOJO.getBooking().getBookingdates().getCheckout());
         assertEquals(expBody.getBooking().getAdditionalneeds(),respPOJO.getBooking().getAdditionalneeds());
-
-
-
 
 
 
